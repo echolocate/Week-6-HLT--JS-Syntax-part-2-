@@ -1,54 +1,64 @@
-let temperature;
-let condition;
-let goToWork;
-// ask user for temperature
-temperature = prompt("What is the temperature outside?");
-// list options then ask user for condition
-console.log("Possible Conditions:");
-console.log("a. Sunny");
-console.log("b. Cloudy");
-console.log("c. Raining");
-console.log("d. Snowing");
-console.log("e. Thunder");
+// Tests performed:
+// force goToWork true
+// temp 12 cond a,b ---pass
+// temp 22 cond c   ---pass
+//
+// force goToWork false
+// temp 12 cond c,d,e     ---pass   
+// temp 5 cond a,b,c,d,e  ---pass
+// temp 40 cond a,b,c,d,e ---pass
 
-// validate user input, if not valid ask again
-while (condition !== "a" && condition !== "b" && condition !== "c" && condition !== "d" && condition !== "e") {
-    condition = prompt("What is the condition outside?");
-}
+var temperature;
+var condition;
+var goToWork;
+var runAgain;
+do {
+  // start with a fresh screen
+  console.clear();
+  function userInput() {
+    // ask user for temperature
+    temperature = prompt("What is the temperature outside?");
+    // list options then ask user for condition
+    console.log("Possible Conditions:");
+    console.log("a. Sunny");
+    console.log("b. Cloudy");
+    console.log("c. Raining");
+    console.log("d. Snowing");
+    console.log("e. Thunder");
+    // validate user input, if not valid ask again
+    do  {
+      condition = prompt("What is the condition outside?");
+    }
+      while ((condition !== "a") && (condition !== "b") && (condition !== "c")
+      && (condition !== "d") && (condition !== "e"));
+    return (temperature, condition);
+  }
+  // Function evaluates combinations based on temperature and condition
+  // Returns boolean goToWork
+  function whetherToWork(temperature, condition) {
+    // console.log(temperature, condition); --- used to check values passed in
 
-// if temperature is >= 10 and condition is sunny go to work
-if (temperature >= 10) {
-  if (condition === "a"){ 
-    //goToWork = true;
-    console.log("Weather ok, get to work !!!");
+    if (((temperature >= 10) && (temperature <= 20)) && ((condition === "a") || (condition === "b"))) {
+      goToWork = true;
+      //console.log(`${goToWork} if statement 1`); --- used to debug
+    }
+    else if (((temperature >= 21) && (temperature <= 30)) && ((condition === "a") || (condition === "b") || (condition === "c"))) {
+      goToWork = true;
+      //console.log(`${goToWork} if statement 3 else if`); --- used to debug
+    }
+    else {
+      goToWork = false;
+      //console.log(`${goToWork} if statement 3 else`); --- used to debug
+    }
+    return goToWork;
   }
-} else
-// if temperature is >= 10 and condition is cloudy go to work
-if (temperature >= 10) {
-  if (condition === "b"){
-    goToWork = true;
-  }
-} else
-// if temperature is >= 10 and condition is raining don't go to work
-if (temperature >= 10) {
-  if (condition === "c"){
-    goToWork = false;
-  }
-} else
-// if temperature is >= 10 and condition is snowing don't go to work
-if (temperature >= 10) {
-  if (condition === "d"){
-    goToWork = false;
-  }
-} else
-// if temperature is >= 10 and condition is thunder don't go to work
-if (temperature >= 10) {
-  if (condition === "e"){
-    goToWork = false;
-  }
-}
-
-// if (goToWork === true) {
-//   console.log("Weather ok, get to work !!!");
-// } else
-//   console.log("Weather dodgy, stay at home.");
+userInput();
+  whetherToWork(temperature, condition);
+  //console.log(`${goToWork} returned from function`); -- debugging, check return value
+  // output to user, based on function evaluation
+  if (goToWork == false) {
+    console.log(`Temperature is ${temperature}C, can't work in these conditions, take the day off.`);
+  } else
+    console.log(`Get back to work, it is ${temperature}C and the weather is dandy !!`);
+  runAgain = prompt("Do you want to check again (y/n)?");
+} while (runAgain == "y");
