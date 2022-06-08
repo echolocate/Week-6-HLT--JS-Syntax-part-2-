@@ -1,6 +1,6 @@
-var temperature;
-var condition;
-var goToWork;
+let temperature;
+let condition;
+let goToWork;
 // ask user for temperature
 temperature = prompt("What is the temperature outside?");
 // list options then ask user for condition
@@ -16,11 +16,11 @@ while (condition !== "a" && condition !== "b" && condition !== "c" && condition 
     condition = prompt("What is the condition outside?");
 }
 
-function weather (temperature, condition) {
 // if temperature is >= 10 and condition is sunny go to work
 if (temperature >= 10) {
   if (condition === "a"){ 
-    goToWork = true;
+    //goToWork = true;
+    console.log("Weather ok, get to work !!!");
   }
 } else
 // if temperature is >= 10 and condition is cloudy go to work
@@ -47,9 +47,8 @@ if (temperature >= 10) {
     goToWork = false;
   }
 }
-  return (goToWork);
-}
-if (goToWork === true) {
-  console.log("Weather ok, get to work !!!");
-} else
-  console.log("Weather dodgy, stay at home.");
+
+// if (goToWork === true) {
+//   console.log("Weather ok, get to work !!!");
+// } else
+//   console.log("Weather dodgy, stay at home.");
