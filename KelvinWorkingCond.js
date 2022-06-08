@@ -1,9 +1,9 @@
 var temperature;
 var condition;
 var goToWork;
-// ASK USER FOR TEMPERATURE
+// ask user for temperature
 temperature = prompt("What is the temperature outside?");
-// ask user for condition
+// list options then ask user for condition
 console.log("Possible Conditions:");
 console.log("a. Sunny");
 console.log("b. Cloudy");
@@ -11,38 +11,41 @@ console.log("c. Raining");
 console.log("d. Snowing");
 console.log("e. Thunder");
 
-condition = prompt("What is the condition?");
+// validate user input, if not valid ask again
+while (condition !== "a" && condition !== "b" && condition !== "c" && condition !== "d" && condition !== "e") {
+    condition = prompt("What is the condition outside?");
+}
 
 function weather (temperature, condition) {
 // if temperature is >= 10 and condition is sunny go to work
 if (temperature >= 10) {
-  if (condition === "sunny") OR (condition === "a") 
+  if (condition === "a"){ 
     goToWork = true;
-  
+  }
 } else
 // if temperature is >= 10 and condition is cloudy go to work
 if (temperature >= 10) {
-  if (condition === "cloudy") OR (condition === "b") 
+  if (condition === "b"){
     goToWork = true;
-  
+  }
 } else
 // if temperature is >= 10 and condition is raining don't go to work
 if (temperature >= 10) {
-  if (condition === "raining") OR (condition === "c") 
+  if (condition === "c"){
     goToWork = false;
-  
+  }
 } else
 // if temperature is >= 10 and condition is snowing don't go to work
 if (temperature >= 10) {
-  if (condition === "snowing") OR (condition === "d") 
+  if (condition === "d"){
     goToWork = false;
-  
+  }
 } else
 // if temperature is >= 10 and condition is thunder don't go to work
 if (temperature >= 10) {
-  if (condition === "thunder") OR (condition === "e") 
+  if (condition === "e"){
     goToWork = false;
-  
+  }
 }
   return (goToWork);
 }
