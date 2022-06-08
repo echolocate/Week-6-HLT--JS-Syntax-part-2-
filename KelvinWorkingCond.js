@@ -12,9 +12,14 @@ var temperature;
 var condition;
 var goToWork;
 var runAgain;
+
+// top of the loop, returns here if user wants to run again
 do {
   // start with a fresh screen
   console.clear();
+
+  // function takes in a temperature and a condition
+  // validates the input, returns both values
   function userInput() {
     // ask user for temperature
     temperature = prompt("What is the temperature outside?");
@@ -33,11 +38,11 @@ do {
       && (condition !== "d") && (condition !== "e"));
     return (temperature, condition);
   }
-  // Function evaluates combinations based on temperature and condition
-  // Returns boolean goToWork
-  function whetherToWork(temperature, condition) {
-    // console.log(temperature, condition); --- used to check values passed in
 
+  // Function evaluates combinations based on temperature and condition
+  // Returns boolean goToWork value
+  function whetherToWork(temperature, condition) {
+    // console.log(temperature, condition); --- debug, used to check values passed in
     if (((temperature >= 10) && (temperature <= 20)) && ((condition === "a") || (condition === "b"))) {
       goToWork = true;
       //console.log(`${goToWork} if statement 1`); --- used to debug
@@ -52,7 +57,10 @@ do {
     }
     return goToWork;
   }
+
+// call userInput function to get temperature and condition
 userInput();
+// call whetherToWork function to evaluate temperature and condition
   whetherToWork(temperature, condition);
   //console.log(`${goToWork} returned from function`); -- debugging, check return value
   // output to user, based on function evaluation
@@ -60,5 +68,8 @@ userInput();
     console.log(`Temperature is ${temperature}C, can't work in these conditions, take the day off.`);
   } else
     console.log(`Get back to work, it is ${temperature}C and the weather is dandy !!`);
-  runAgain = prompt("Do you want to check again (y/n)?");
+  
+  // ask user if they want to run again
+  // TODO: add validation
+    runAgain = prompt("Do you want to check again (y/n)?");
 } while (runAgain == "y");
