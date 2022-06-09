@@ -1,5 +1,5 @@
 // To anyone reading this, sorry about the verbose comments,
-// they are purely for my benefit, since I copied most of this code
+// they are purely for my benefit, since I adapted various algorithms
 // from various sources and needed to understand how it all works.
 //
 // The last attempt (fruityLoops.js) I thought there must be a better way...
