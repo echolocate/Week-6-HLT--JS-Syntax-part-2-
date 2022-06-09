@@ -1,5 +1,7 @@
-// set up the fruit elements in fruits array,
-// can add more fruits to the array if you want
+// See fruityLoops-stretch.js for a more elegant solution.
+// =======================================================
+// Set up the fruit elements in fruits array,
+// can add more fruits to the array if you need to.
 var fruits = ["Apple", "Orange", "Banana", "Pear",
     "Peach", "Strawberry", "Cherry", "Acai"];
 
@@ -24,8 +26,6 @@ for (let fruit in fruits) {
                 break;
             default:
                 consonants++;
-                //console.log(fruits[fruit][i]);
-                //console.log(`number of consonants ${consonants}`);
                 break;
         }
     } console.log(`${fruits[fruit]}, vowels: ${vowels}, consonants ${consonants}`);
