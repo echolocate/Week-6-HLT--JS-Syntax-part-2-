@@ -29,6 +29,5 @@ for (let fruit in fruits) {
                 break;
         }
     } console.log(`${fruits[fruit]}, vowels: ${vowels}, consonants ${consonants}`);
-
 }
 
