@@ -19,7 +19,7 @@ let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let fruitString = arrayToString(fruits);
 //fruitString ="AppleOrangeBananaPearPeachStrawberryCherryAcai" after conversion
 
-console.log(`${fruits} comprises of: `)
+console.log(`Letters to order for ${fruits}`)
 
 // convert array to string 
 // (loop through array, concatenate string with current element in array)
@@ -54,18 +54,12 @@ function countLetter(letter, string) {
 // countLetter returns quantity per letter for current character in alphabet[i]
 // (eg "d" for alphabet[4]), then calls countLetter function to compare all 
 // characters in fruitString against next letter in alphabet[i+1].
-// Repeat for all characters in alphabet string.
-// Output discards letters that don't appear in fruits array 
-// (process.stdout.write supresses newline, use instead of console.log if you want the list 
-// to go on one line instead of one letter quantity per line). 
+// Repeats for all characters in alphabet string.
+// Output discards letters that don't appear in fruits array (countLetter is 1 or more) 
+// (process.stdout.write("") outputs empty string and supresses newline) 
 for (let i = 0; i < alphabet.length; i++) {
     if (countLetter(alphabet[i], fruitString) >= 1) {
         console.log(`${countLetter(alphabet[i], fruitString)} letter ${alphabet[i]},  `);
-        // process.stdout.write(`${countLetter(alphabet[i], fruitString)} letter ${alphabet[i]},  `);
     }
-    else { (process.stdout.write("")) }
+    else { (process.stdout.write("")); }
 }
-
-
-
-
