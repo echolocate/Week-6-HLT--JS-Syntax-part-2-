@@ -5,11 +5,17 @@
 var fruits = ["Apple", "Orange", "Banana", "Pear",
     "Peach", "Strawberry", "Cherry", "Acai"];
 
+console.log("Fruits to get letters for:");
+console.log(`${fruits}`);
+console.log("");
 // outer loop, picks out each fruit element in array
 for (let fruit in fruits) {
     // initialise count at the start of next element
     let vowels = 0;
     let consonants = 0;
+    let indefArt;
+    let vplural;
+    let cplural;
 
     // inner loop, isolate each letter in fruit element,
     // convert to lower case then check against vowels 
@@ -23,11 +29,34 @@ for (let fruit in fruits) {
             case "o":
             case "u":
                 vowels++;
+                if (i === 0) {
+                    indefArt = "An";
+                }
                 break;
             default:
                 consonants++;
+                if (i === 0) {
+                    indefArt = "A";
+                }
                 break;
         }
-    } console.log(`${fruits[fruit]}, vowels: ${vowels}, consonants ${consonants}`);
+    }
+    // determines if vowels or consonants are plural for output.
+    // (messy, must be a better way using only one plural variable)
+    if (vowels === 1) {
+        vplural = "";
+    }
+    else {
+        vplural = "s";
+    }
+    if (consonants === 1) {
+        cplural = "";
+    }
+    else {
+        cplural = "s";
+    }
+
+    console.log
+        (`${indefArt} ${fruits[fruit]} has ${vowels} vowel${vplural} and ${consonants} consonant${cplural}.`);
 }
 
