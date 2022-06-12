@@ -64,7 +64,7 @@ do {
         return firstValue * secondValue;
     }
     function power(firstValue, secondValue) {
-        return firstValue ^ secondValue;
+        return firstValue ** secondValue;
     }
 
     // Return to start if user enters 'y', otherwise exits.
