@@ -11,7 +11,7 @@
 // string (using string.length method).
 // I got A LOT of help from the Internet, most, if not all of this code
 // is copy/pasted. There is no way I could have coded this from scratch, 
-// but I learned a lot. I just hacked together a few algoritms
+// but I learned a lot about string parsing. I just hacked together a few algoritms
 // to get it all to work together. I love this solution!
 
 var fruits = ["Apple", "Orange", "Banana", "Pear", "Peach", "Strawberry", "Cherry", "Acai"];
