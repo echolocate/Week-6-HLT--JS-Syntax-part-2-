@@ -17,6 +17,7 @@ function display(value) {
 // instead of allowing user to add numbers and operators afterwards, which 
 // gives a bogus result.
 // Probably easy to fix but my brain hurts and I ran out of time.
+// (Maybe due to it having no default condition, I originally thought I didn't need it).
 function calculate() {
     var userInput = document.getElementById("result").value;
     for (let i = 0; i < userInput.length; i++) {
@@ -60,14 +61,6 @@ function calculate() {
                 var answer = parseInt(firstValue) ** parseInt(secondValue);
                 display(`= ${answer}`);
                 break;
-            // case '^':
-            //     var firstValue = userInput.slice(0, i);
-            //     var secondValue = userInput.slice((i + 1), userInput.length);
-            //     console.log(`${firstValue} ${userInput[i]} ${secondValue}`);
-            //     var answer = parseInt(firstValue) ^ parseInt(secondValue);
-            //     display(answer);
-            // default:
-            //     console.log(`${userInput}`);
         }
     }
 }
